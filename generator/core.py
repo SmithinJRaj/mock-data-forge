@@ -4,6 +4,7 @@
 from faker import Faker
 import random
 from typing import Dict, Any, List
+import rstr
 
 # Initialize Faker instance globally (or pass it around)
 # You can set a locale if you need region-specific data (e.g., 'en_US')
@@ -18,6 +19,16 @@ def _generate_value_by_type(data_type: str, constraints: Dict[str, Any]) -> Any:
     """
     data_type = data_type.lower()
     
+    if 'choices' in constraints:
+        choices_list = constraints['choices']
+        if isinstance(choices_list, list) and choices_list:
+            return random.choice(choices_list)
+
+    if data_type == 'string' and 'regex' in constraints:
+        regex_pattern = constraints['regex']
+        # Use rstr to generate a string that matches the regex pattern
+        return rstr.xeger(regex_pattern)
+
     # --- Primitive Data Types ---
     if data_type == 'string':
         return fake.text(max_nb_chars=constraints.get('max_length', 50))
@@ -30,7 +41,11 @@ def _generate_value_by_type(data_type: str, constraints: Dict[str, Any]) -> Any:
                             positive=True)
     elif data_type == 'boolean':
         return fake.boolean()
-
+    elif data_type == 'enum':
+        choices_list = constraints.get('choices', [])
+        if choices_list:
+             return random.choice(choices_list)
+        return "ERROR: Enum type requires 'choices' list."
     # --- Semantic Data Types ---
     elif data_type == 'uuid':
         return fake.uuid4()
