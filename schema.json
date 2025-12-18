@@ -1,0 +1,22 @@
+{
+    "id": "uuid",
+    "full_name": "name",
+    
+    "department": {
+        "type": "enum",
+        "choices": ["HR", "Engineering", "Marketing", "Sales"] 
+    },
+    
+    "employee_id": {
+        "type": "string",
+        "regex": "EMP-[A-Z]{3}-[0-9]{4}" 
+    },
+    
+    "salary": {
+        "type": "integer",
+        "min": 50000,
+        "max": 150000
+    },
+    
+    "is_manager": "boolean"
+}

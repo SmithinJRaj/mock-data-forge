@@ -1,0 +1,82 @@
+[
+    {
+        "id": "2ff7d0e2-4024-45a9-8d92-31e8c8e0f5c5",
+        "full_name": "Marc Huffman",
+        "department": "Sales",
+        "employee_id": "EMP-QGG-1495",
+        "salary": 132620,
+        "is_manager": false
+    },
+    {
+        "id": "da71ac6f-ce96-4769-9547-b614a12aa1bd",
+        "full_name": "Jennifer Mahoney",
+        "department": "Engineering",
+        "employee_id": "EMP-JRU-4542",
+        "salary": 67398,
+        "is_manager": true
+    },
+    {
+        "id": "bad3d580-6f76-497c-b15e-2775d2179a2b",
+        "full_name": "Brandon Johnson",
+        "department": "Engineering",
+        "employee_id": "EMP-YFR-0910",
+        "salary": 128602,
+        "is_manager": false
+    },
+    {
+        "id": "67c1e305-acb3-474d-94c9-c7be1ffda191",
+        "full_name": "Morgan Bush",
+        "department": "Engineering",
+        "employee_id": "EMP-QLJ-1666",
+        "salary": 116779,
+        "is_manager": true
+    },
+    {
+        "id": "c373202e-dc9c-400e-8917-686e93b3244e",
+        "full_name": "Julie Morris",
+        "department": "Marketing",
+        "employee_id": "EMP-UWC-9513",
+        "salary": 144550,
+        "is_manager": true
+    },
+    {
+        "id": "684b7994-c25f-47ba-9796-5d0b3bcb24bd",
+        "full_name": "Laurie Gallegos",
+        "department": "Engineering",
+        "employee_id": "EMP-PLI-2003",
+        "salary": 113413,
+        "is_manager": false
+    },
+    {
+        "id": "8b77f778-79c3-46eb-ad38-92eefb808d9e",
+        "full_name": "Stephanie Rocha",
+        "department": "HR",
+        "employee_id": "EMP-MKL-2895",
+        "salary": 68320,
+        "is_manager": false
+    },
+    {
+        "id": "e7e0877d-0d8f-43d7-825b-8740604ed4b0",
+        "full_name": "Christopher Young",
+        "department": "HR",
+        "employee_id": "EMP-JAJ-9442",
+        "salary": 141474,
+        "is_manager": false
+    },
+    {
+        "id": "62715833-77f1-468f-9f5b-2818cd467fd9",
+        "full_name": "Oscar Rowland",
+        "department": "Engineering",
+        "employee_id": "EMP-CVT-2074",
+        "salary": 94218,
+        "is_manager": true
+    },
+    {
+        "id": "73bb4db4-3cef-4f82-8ceb-e44e2e7d24a4",
+        "full_name": "Miranda Hansen",
+        "department": "Marketing",
+        "employee_id": "EMP-LYB-8084",
+        "salary": 97656,
+        "is_manager": false
+    }
+]
