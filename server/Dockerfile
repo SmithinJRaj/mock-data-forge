@@ -1,7 +1,14 @@
 FROM python:3.10-slim
+
 WORKDIR /app
-COPY requirements.txt .
+
+# Install dependencies
+COPY server/requirements.txt ./requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
-COPY . .
-EXPOSE 5000
-CMD ["python", "app.py"]
+
+# Copy backend + generator
+COPY server ./server
+COPY generator ./generator
+
+# Run from project root
+CMD ["python", "-m", "server.app"]
