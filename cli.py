@@ -26,13 +26,19 @@ def load_schema(file_path: str) -> dict:
         print(f"An unexpected error occurred while loading schema: {e}")
         sys.exit(1)
 
-def write_output(file_path: str, data: list):
-    """Writes the generated data to a JSON file."""
+def write_output(file_path: str, data_generator,count: list):
+    """Writes the generated data to a JSON file incrementally to save memory"""
     try:
         with open(file_path, 'w') as f:
-            # Use indent for human readability
-            json.dump(data, f, indent=4)
-        print(f"\n✅ Success: Generated {len(data)} records to '{file_path}'")
+            f.write("[\n]")
+            for i,record in enumerate(data_generator):
+                json.dump(record, f, indent=4)
+                if( i< count-1):
+                    f.write(",\n")
+                else:
+                    f.write("\n")
+            f.write("]\n")
+        print(f"\n✅ Success: Streamed {count} records to '{file_path}'")
     except Exception as e:
         print(f"Error: Failed to write data to file: {e}")
         sys.exit(1)
@@ -77,10 +83,10 @@ def main():
     print(f"   -> Schema loaded from: {args.input}")
 
     # 2. Generate Data
-    generated_data = generate_mock_data(schema, args.count)
+    data_generator = generate_mock_data(schema, args.count)
     
     # 3. Write Output
-    write_output(args.output, generated_data)
+    write_output(args.output, data_generator, args.count)
 
 if __name__ == '__main__':
     main()

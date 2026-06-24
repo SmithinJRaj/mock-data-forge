@@ -5,6 +5,7 @@ from faker import Faker
 import random
 from typing import Dict, Any, List
 import rstr
+from typing import Dict, Any, Iterator
 
 # Initialize Faker instance globally (or pass it around)
 # You can set a locale if you need region-specific data (e.g., 'en_US')
@@ -122,7 +123,7 @@ def _generate_single_record(schema: Dict[str, Any]) -> Dict[str, Any]:
         
     return record
 
-def generate_mock_data(schema: Dict[str, Any], count: int = 1) -> List[Dict[str, Any]]:
+def generate_mock_data(schema: Dict[str, Any], count: int = 1) -> Iterator[Dict[str, Any]]:
     """
     Generates a list of mock data records based on the input schema.
     
@@ -130,8 +131,5 @@ def generate_mock_data(schema: Dict[str, Any], count: int = 1) -> List[Dict[str,
     :param count: The number of records to generate.
     :return: A list of generated data dictionaries.
     """
-    data_records = []
     for _ in range(count):
-        record = _generate_single_record(schema)
-        data_records.append(record)
-    return data_records
+        yield _generate_single_record(schema)
