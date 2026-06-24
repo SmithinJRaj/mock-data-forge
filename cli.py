@@ -26,13 +26,17 @@ def load_schema(file_path: str) -> dict:
         print(f"An unexpected error occurred while loading schema: {e}")
         sys.exit(1)
 
-def write_output(file_path: str, data_generator,count: list):
+def write_output(file_path: str, data_generator,count: int):
     """Writes the generated data to a JSON file incrementally to save memory"""
     try:
         with open(file_path, 'w') as f:
-            f.write("[\n]")
+            f.write("[\n")
             for i,record in enumerate(data_generator):
-                json.dump(record, f, indent=4)
+                record_str = json.dumps(record,  indent=4)
+                
+                indented_record = "\n".join("    " + line for line in record_str.splitlines())
+                f.write(indented_record)
+
                 if( i< count-1):
                     f.write(",\n")
                 else:

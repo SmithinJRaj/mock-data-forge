@@ -1,0 +1,7 @@
+.venv/
+massive_data.json
+output.json
+schema.json
+setup_db.py
+test.db
+__pycache__/
